@@ -15,10 +15,12 @@ public static class BattleHandler
 {
     public static void Battle(BattleEventData data)
     {
-        //This needs to be replaced with some actual battle logic, at present 
-        // we just award the maximum possible win to the player
-        float outcome = Random.Range(-1.0f, 1.0f);
+        //float outcome = Random.Range(-1.0f, 1.0f); The player if he get from -1 to 0 he will lose. The player if he get from 0 to 1.0f he will win
+        // Debug.Log it's like (print) so it will print what ever you write in the console.
+        //Random.Range : it will choose between two numbers by your choise randolmy.
 
+        float outcome = Random.Range(-1.0f, 1.0f);
+        
         Debug.Log(outcome);
         Debug.Log(data.npc.level + " npc level");
         Debug.Log(data.npc.luck + " npc luck");

@@ -16,7 +16,7 @@ using UnityEngine;
 public class XPHandler : MonoBehaviour
 {
     private void OnEnable()
-    
+
     {
         GameEvents.OnBattleConclude += GainXP;
     }
@@ -28,10 +28,21 @@ public class XPHandler : MonoBehaviour
 
     public void GainXP(BattleResultEventData data)
     {
+        //if (data.outcome > 0) This is a condtion whet it's true the player win
+        //data.player.xp += 100 * data.player.rhythm + data.player.luck + data.player.style;....This code is a eqation to make the player get xp each time he won in a dance
+        //if (data.outcome == 0) This is a condtion whet it's true the player draw
+        //if (data.outcome < 0) This is a condtion whet it's true the player lose
+
+        /*if (data.player.xp >= data.player.level * 300)....This code is cheaking if xp greater than level multiply by 300 the player will level up
+         after that if the condition will be true the player will level up and the xp will reset to 0 */
+
         if (data.outcome > 0)
         {
+
             data.player.xp += 100 * data.player.rhythm + data.player.luck + data.player.style;
-            print("I won");
+
+            print("I win");
+
             print("xp" + data.player.xp);
         }
         if (data.outcome == 0)
@@ -45,17 +56,16 @@ public class XPHandler : MonoBehaviour
             print("I lost");
         }
 
-        if (data.player.xp >= data.player.level* 300 )
+        if (data.player.xp >= data.player.level * 300)
 
         {
             data.player.level += 1;
             data.player.xp = 0;
-
-
         }
-
-
 
 
     }
 }
+
+
+
